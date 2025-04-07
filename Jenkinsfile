@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Semgrep code analysis') {
             steps {
-                bash 'semgrep ci'
+                sh 'echo $SEMGREP_APP_TOKEN; semgrep ci'
             }
         }
     }
