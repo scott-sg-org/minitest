@@ -20,6 +20,7 @@ pipeline {
                 // Run Maven on a Unix agent.
                 sh "mvn -DskipTests=true clean package"
             }
+        }
         stage('Semgrep code analysis') {
             steps {
                 bash 'semgrep ci'
