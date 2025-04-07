@@ -22,8 +22,11 @@ pipeline {
             }
         }
         stage('Semgrep code analysis') {
+            agent {
+                docker { image 'semgrep/semgrep:latest' }
+            }
             steps {
-                sh 'echo $SEMGREP_APP_TOKEN; semgrep ci'
+                sh 'semgrep ci'
             }
         }
     }
