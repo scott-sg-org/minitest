@@ -3,11 +3,11 @@ pipeline {
 
     environment {
         SEMGREP_APP_TOKEN = credentials('SEMGREP_APP_TOKEN')
+        SEMGREP_BASELINE_REF = "origin/master"
     }
 
 
     tools {
-        // Install the Maven version configured as "M3" and add it to the path.
         maven "Maven-3"
     }
 
@@ -22,11 +22,12 @@ pipeline {
             }
         }
         stage('Semgrep code analysis') {
-            agent {
-                docker { image 'semgrep/semgrep:latest' }
-            }
             steps {
-                sh 'semgrep ci'
+                sh '''docker run \
+                -e SEMGREP_APP_TOKEN=$SEMGREP_APP_TOKEN \
+                -e SEMGREP_BASELINE_REF=$SEMGREP_BASELINE_REF \
+                -v "$(pwd):$(pwd)" --workdir $(pwd) \
+                semgrep/semgrep semgrep ci'''
             }
         }
     }
