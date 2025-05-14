@@ -30,7 +30,11 @@
         <version>[4.13.1,)</version>
         <scope>test</scope>
     </dependency>
-    
+<dependency>
+    <groupId>com.lowagie</groupId>
+    <artifactId>itext</artifactId>
+    <version>4.2.2</version>
+</dependency>    
 	<dependency>
 		<groupId>org.codehaus.mojo</groupId>
 		<artifactId>exec-maven-plugin</artifactId>
