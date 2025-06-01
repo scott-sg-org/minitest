@@ -34,8 +34,7 @@ jobs:
     - name: Upload Dependency Zip
       uses: actions/upload-artifact@v4
       with:
-        name: zipfile
-        path: deptree.zip
+        name: deptree.zip
 
   semgrep:
     permissions:
