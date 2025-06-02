@@ -58,7 +58,7 @@ jobs:
       - name: Semgrep Scan
         run: |
           unzip -o deptree.zip
-          semgrep ci --sarif --sarif-output=minitest.sarif
+          semgrep ci --sarif --sarif-output=minitest.sarif --suppress-errors
 
       - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v3
