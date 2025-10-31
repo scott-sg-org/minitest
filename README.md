@@ -1,7 +1,7 @@
 #Minitest
 ##A simple app with some vulnerabilities
 
-The goal is to have a very small app to make scans fast while including more than one vulnerability and a potential fix.
+Updated for demo
 
 Recommended use:
 Maven phases for build:
